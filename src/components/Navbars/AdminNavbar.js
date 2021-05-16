@@ -1,22 +1,7 @@
-/*!
 
-=========================================================
-* Argon Dashboard React - v1.2.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-react
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/argon-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
-import React from "react";
-import { Link } from "react-router-dom";
+import { useAuth } from "components/contexts/AuthContext";
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 // reactstrap components
 import {
   DropdownMenu,
@@ -36,6 +21,20 @@ import {
 } from "reactstrap";
 
 const AdminNavbar = (props) => {
+
+  const [error, setError] = useState("");
+  const history = useHistory()
+  const { currentUser, logout } = useAuth()
+  async function handleLogout() {
+    setError("")
+
+    try {
+      await logout()
+      history.push("/auth")
+    } catch {
+      setError("Failed to log out")
+    }
+  }
   return (
     <>
       <Navbar className="navbar-top navbar-dark" expand="md" id="navbar-main">
@@ -73,7 +72,7 @@ const AdminNavbar = (props) => {
                   </span>
                   <Media className="ml-2 d-none d-lg-block">
                     <span className="mb-0 text-sm font-weight-bold">
-                      Jessica Jones
+                      {currentUser ? currentUser.email : ""}
                     </span>
                   </Media>
                 </Media>
@@ -82,24 +81,24 @@ const AdminNavbar = (props) => {
                 <DropdownItem className="noti-title" header tag="div">
                   <h6 className="text-overflow m-0">Welcome!</h6>
                 </DropdownItem>
-                <DropdownItem to="/admin/user-profile" tag={Link}>
+                <DropdownItem to="/customer/user-profile" tag={Link}>
                   <i className="ni ni-single-02" />
                   <span>My profile</span>
                 </DropdownItem>
-                <DropdownItem to="/admin/user-profile" tag={Link}>
+                <DropdownItem to="/customer/user-profile" tag={Link}>
                   <i className="ni ni-settings-gear-65" />
                   <span>Settings</span>
                 </DropdownItem>
-                <DropdownItem to="/admin/user-profile" tag={Link}>
+                <DropdownItem to="/customer/user-profile" tag={Link}>
                   <i className="ni ni-calendar-grid-58" />
                   <span>Activity</span>
                 </DropdownItem>
-                <DropdownItem to="/admin/user-profile" tag={Link}>
+                <DropdownItem to="/customer/user-profile" tag={Link}>
                   <i className="ni ni-support-16" />
                   <span>Support</span>
                 </DropdownItem>
                 <DropdownItem divider />
-                <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
+                <DropdownItem href="#pablo" onClick={handleLogout}>
                   <i className="ni ni-user-run" />
                   <span>Logout</span>
                 </DropdownItem>

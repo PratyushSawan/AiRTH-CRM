@@ -1,21 +1,5 @@
-/*!
 
-=========================================================
-* Argon Dashboard React - v1.2.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-react
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/argon-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 // reactstrap components
 import {
@@ -32,8 +16,30 @@ import {
 } from "reactstrap";
 // core components
 import UserHeader from "components/Headers/UserHeader.js";
+import { useAuth } from "components/contexts/AuthContext";
+import { db } from "components/firebase";
 
 const Profile = () => {
+  const { currentUser } = useAuth();
+  const [details, setDetails] = useState("")
+
+  useEffect(() => {
+    if (currentUser) {
+      db
+        .collection('users')
+        .doc(currentUser?.uid).get()
+        .then((doc) => {
+          if (doc.exists) {
+            // console.log(doc.data())
+            setDetails(doc.data())
+          }
+        })
+
+      console.log(details)
+    } else {
+      console.log("not fetched")
+    }
+  }, [])
   return (
     <>
       <UserHeader />
@@ -85,30 +91,30 @@ const Profile = () => {
                   <div className="col">
                     <div className="card-profile-stats d-flex justify-content-center mt-md-5">
                       <div>
-                        <span className="heading">22</span>
-                        <span className="description">Friends</span>
+                        <span className="heading">5</span>
+                        <span className="description">Products</span>
                       </div>
                       <div>
                         <span className="heading">10</span>
-                        <span className="description">Photos</span>
+                        <span className="description">Maintenace Done</span>
                       </div>
                       <div>
-                        <span className="heading">89</span>
-                        <span className="description">Comments</span>
+                        <span className="heading">5</span>
+                        <span className="description">Refers</span>
                       </div>
                     </div>
                   </div>
                 </Row>
                 <div className="text-center">
                   <h3>
-                    Jessica Jones
+                    {currentUser.email}
                     <span className="font-weight-light">, 27</span>
                   </h3>
                   <div className="h5 font-weight-300">
                     <i className="ni location_pin mr-2" />
-                    Bucharest, Romania
+                    Deoghar,Jharkhand
                   </div>
-                  <div className="h5 mt-4">
+                  {/* <div className="h5 mt-4">
                     <i className="ni business_briefcase-24 mr-2" />
                     Solution Manager - Creative Tim Officer
                   </div>
@@ -124,7 +130,7 @@ const Profile = () => {
                   </p>
                   <a href="#pablo" onClick={(e) => e.preventDefault()}>
                     Show more
-                  </a>
+                  </a> */}
                 </div>
               </CardBody>
             </Card>
@@ -165,7 +171,7 @@ const Profile = () => {
                           </label>
                           <Input
                             className="form-control-alternative"
-                            defaultValue="lucky.jesse"
+                            defaultValue={details.Name}
                             id="input-username"
                             placeholder="Username"
                             type="text"
