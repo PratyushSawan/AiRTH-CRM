@@ -5,7 +5,7 @@ import { useHistory } from "react-router";
 // reactstrap components
 import { Card, CardBody, CardTitle, Container, Row, Col, UncontrolledTooltip } from "reactstrap";
 
-const BackendHeader = () => {
+const BackendHeader = ({ totalProducts }) => {
     const history = useHistory();
     return (
         <>
@@ -37,8 +37,8 @@ const BackendHeader = () => {
                                                     Total Registerd Products
                                                 </CardTitle>
                                                 <span className="h2 font-weight-bold mb-0">
-                                                    500
-                                                 </span>
+                                                    {totalProducts}
+                                                </span>
                                             </div>
                                             <Col className="col-auto" id="addNew" onClick={e => history.push('/backend/Registration')} style={{ cursor: "pointer" }}>
                                                 <div className="icon icon-shape bg-success text-white rounded-circle shadow">
@@ -60,7 +60,7 @@ const BackendHeader = () => {
                                     </CardBody>
                                 </Card>
                             </Col>
-                            <Col lg="6" xl="3">
+                            {/* <Col lg="6" xl="3">
                                 <Card className="card-stats mb-4 mb-xl-0">
                                     <CardBody>
                                         <Row>
@@ -87,7 +87,7 @@ const BackendHeader = () => {
                                         </p>
                                     </CardBody>
                                 </Card>
-                            </Col>
+                            </Col> */}
                             <Col lg="6" xl="3">
                                 <Card className="card-stats mb-4 mb-xl-0">
                                     <CardBody>
@@ -99,7 +99,7 @@ const BackendHeader = () => {
                                                 >
                                                     Pending Maintenace
                         </CardTitle>
-                                                <span className="h2 font-weight-bold mb-0">20</span>
+                                                <span className="h2 font-weight-bold mb-0">No Maintenace Found</span>
                                             </div>
                                             <Col className="col-auto">
                                                 <div className="icon icon-shape bg-warning text-white rounded-circle shadow">

@@ -1,10 +1,12 @@
 
 import React from "react";
+import { useHistory } from "react-router";
 
 // reactstrap components
-import { Card, CardBody, CardTitle, Container, Row, Col } from "reactstrap";
+import { Card, CardBody, CardTitle, Container, Row, Col, UncontrolledTooltip } from "reactstrap";
 
-const ProductsHeader = () => {
+const ProductsHeader = ({ totalProduct }) => {
+    const history = useHistory()
     return (
         <>
             <div className="header bg-gradient-info pb-8 pt-5 pt-md-8">
@@ -24,15 +26,22 @@ const ProductsHeader = () => {
                                                     Total Registerd Products
                         </CardTitle>
                                                 <span className="h2 font-weight-bold mb-0">
-                                                    500
-                        </span>
+                                                    {totalProduct}
+                                                </span>
                                             </div>
-                                            <Col className="col-auto" onClick={e => console.log("clicked")}>
+                                            <Col className="col-auto" id="addNew" onClick={e => history.push('/backend/Registration')} style={{ cursor: "pointer" }}>
                                                 <div className="icon icon-shape bg-success text-white rounded-circle shadow">
                                                     <i className="ni ni-fat-add" />
 
                                                 </div>
                                             </Col>
+                                            <UncontrolledTooltip
+                                                delay={0}
+                                                placement="top"
+                                                target="addNew"
+                                            >
+                                                Add New Product
+                                            </UncontrolledTooltip>
                                         </Row>
                                         <p className="mt-3 mb-0 text-muted text-sm">
                                             <span className="text-nowrap">Click + icon to add New</span>

@@ -321,7 +321,7 @@ let chartExample1 = {
             content += label;
           }
 
-          content += "$" + yLabel + "k";
+          content += yLabel + "ug/m3";
           return content;
         },
       },
@@ -333,7 +333,7 @@ let chartExample1 = {
       datasets: [
         {
           label: "Performance",
-          data: [0, 20, 10, 30, 15, 40, 20, 60, 60],
+          data: [50, 20, 10, 30, 15, 40, 20, 60, 60],
         },
       ],
     };
@@ -344,7 +344,7 @@ let chartExample1 = {
       datasets: [
         {
           label: "Performance",
-          data: [0, 20, 5, 25, 10, 30, 15, 40, 40],
+          data: [30, 20, 5, 25, 10, 30, 15, 40, 40],
         },
       ],
     };
@@ -355,7 +355,7 @@ let chartExample1 = {
       datasets: [
         {
           label: "Performance",
-          data: [0, 10, 5, 15, 20, 30, 10, 14, 20],
+          data: [20, 10, 5, 15, 20, 30, 10, 14, 20],
         },
       ],
     };
