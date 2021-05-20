@@ -1,21 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router';
 import { Timeline, TimelineEvent } from '@mailtop/horizontal-timeline';
-import { BsBagFill, BsTools, BsCheckAll, BsThreeDotsVertical } from "react-icons/bs"
+import { BsBagFill, BsTools, BsCheckAll } from "react-icons/bs"
 import firebase from "firebase"
 import {
     Button,
-    Card,
-    CardHeader,
-    CardBody,
     FormGroup,
-    Form,
     Input,
-    InputGroupAddon,
-    InputGroupText,
-    InputGroup,
     Modal,
-    Row,
     Col,
     ModalHeader,
     ModalBody,
@@ -28,9 +19,6 @@ import { db } from 'components/firebase';
 
 
 function DateTimeline({ purchasedAt, id, futureMaintenance }) {
-
-
-    const history = useHistory();
 
     const [dates, setDates] = useState([])
     const [upcomingMaintenance, setUpcomingMaintenance] = useState(futureMaintenance);

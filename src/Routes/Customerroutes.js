@@ -1,8 +1,7 @@
 
-import Index from "views/Index.js";
 import Profile from "views/examples/Profile.js";
 import Products from "views/Products/Products";
-import Product from "views/Product/Product";
+
 
 
 var routes = [

@@ -145,7 +145,7 @@ const Sidebar = (props) => {
               <DropdownItem className="noti-title" header tag="div">
                 <h6 className="text-overflow m-0">Welcome!</h6>
               </DropdownItem>
-              <DropdownItem to="/admin/user-profile" tag={Link}>
+              <DropdownItem>
                 <i className="ni ni-single-02" />
                 <span>My profile</span>
               </DropdownItem>
@@ -224,21 +224,21 @@ const Sidebar = (props) => {
           {/* Navigation */}
           <Nav className="mb-md-3" navbar>
             <NavItem>
-              <NavLink href="https://demos.creative-tim.com/argon-dashboard-react/#/documentation/overview?ref=adr-admin-sidebar">
+              <NavLink href="#">
                 <i className="ni ni-spaceship" />
-                Getting started
+                    Documentation
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://demos.creative-tim.com/argon-dashboard-react/#/documentation/colors?ref=adr-admin-sidebar">
+              <NavLink href="#">
                 <i className="ni ni-palette" />
-                Foundation
+                AIQ
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://demos.creative-tim.com/argon-dashboard-react/#/documentation/alerts?ref=adr-admin-sidebar">
+              <NavLink href="#">
                 <i className="ni ni-ui-04" />
-                Components
+                Foundation
               </NavLink>
             </NavItem>
           </Nav>

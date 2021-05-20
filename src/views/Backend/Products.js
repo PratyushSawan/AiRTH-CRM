@@ -1,4 +1,3 @@
-import { useAuth } from "components/contexts/AuthContext";
 import { db } from "components/firebase";
 import ProductsHeader from "components/Headers/Backend/ProductsHeader";
 import moment from "moment";
@@ -8,7 +7,6 @@ import { DateRangePicker } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import {
-  Alert,
   Badge,
   Button,
   Card,
@@ -27,14 +25,12 @@ import {
   Nav,
   Navbar,
   NavbarBrand,
-  NavItem,
   Row,
   Table,
   UncontrolledDropdown,
 } from "reactstrap";
 
 function Products() {
-  const { currentUser } = useAuth();
   const history = useHistory();
 
   const [devices, setDevices] = useState([]);

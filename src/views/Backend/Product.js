@@ -4,7 +4,7 @@ import classnames from "classnames";
 // javascipt plugin for creating charts
 import Chart from "chart.js";
 // react plugin used to create charts
-import { Line, Bar } from "react-chartjs-2";
+import { Line} from "react-chartjs-2";
 // reactstrap components
 import {
   Button,
@@ -14,8 +14,6 @@ import {
   NavItem,
   NavLink,
   Nav,
-  Progress,
-  Table,
   Container,
   Row,
   Col,
@@ -28,7 +26,6 @@ import {
   chartOptions,
   parseOptions,
   chartExample1,
-  chartExample2,
 } from "variables/charts.js";
 
 import ProductHeader from "components/Headers/ProductHeader.js";
@@ -36,8 +33,7 @@ import { useParams } from "react-router";
 import productimg from "../../assets/img/AiRTHMachine.png";
 import { db } from "components/firebase";
 import DateTimeline from "components/TImeline/DateTimeline";
-import moment from "moment";
-// import Maintenance from "components/Timeline/Maintenance";
+
 
 const Product = (props) => {
   const { pid } = useParams();

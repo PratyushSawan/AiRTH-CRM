@@ -2,7 +2,7 @@
 import Index from "views/Backend/Index";
 import Products from "views/Backend/Products";
 import Registration from "views/Backend/Registration";
-import Icons from "views/examples/Icons";
+
 
 
 var routes = [
@@ -27,12 +27,12 @@ var routes = [
         component: Registration,
         layout: "/backend",
     },
-    {
-        path: "/icon",
-        name: "Icon",
-        icon: "ni ni-tv-2 text-sucess",
-        component: Icons,
-        layout: "/backend",
-    },
+    // {
+    //     path: "/icon",
+    //     name: "Icon",
+    //     icon: "ni ni-tv-2 text-sucess",
+    //     component: Icons,
+    //     layout: "/backend",
+    // },
 ];
 export default routes;
