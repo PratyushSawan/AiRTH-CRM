@@ -17,7 +17,7 @@ const BackendHeader = ({ totalProducts }) => {
                             <p className="text-white mt-0 mb-5">
                                 You can manage All Products and Users from one Place...
                                 This is AiRTH CRM Dashboard
-              </p>
+                            </p>
                         </Col>
                     </Row>
                 </Container>

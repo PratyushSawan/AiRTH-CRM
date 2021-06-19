@@ -1,4 +1,3 @@
-
 import { useAuth } from "components/contexts/AuthContext";
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
@@ -15,18 +14,17 @@ import {
 } from "reactstrap";
 
 const AdminNavbar = (props) => {
-
   const [error, setError] = useState("");
-  const history = useHistory()
-  const { currentUser, logout } = useAuth()
-  async function handleLogout() {
-    setError("")
+  const history = useHistory();
+  const { currentUser, logout } = useAuth();
 
+  async function handleLogout() {
+    setError("");
     try {
-      await logout()
-      history.push("/auth")
+      await logout();
+      history.push("/auth");
     } catch {
-      setError("Failed to log out")
+      setError("Failed to log out");
     }
   }
   return (
@@ -63,7 +61,7 @@ const AdminNavbar = (props) => {
                 <DropdownItem className="noti-title" header tag="div">
                   <h6 className="text-overflow m-0">Welcome!</h6>
                 </DropdownItem>
-                <DropdownItem >
+                <DropdownItem>
                   <i className="ni ni-single-02" />
                   <span>My profile</span>
                 </DropdownItem>
@@ -71,7 +69,7 @@ const AdminNavbar = (props) => {
                   <i className="ni ni-settings-gear-65" />
                   <span>Settings</span>
                 </DropdownItem>
-                <DropdownItem >
+                <DropdownItem>
                   <i className="ni ni-calendar-grid-58" />
                   <span>Activity</span>
                 </DropdownItem>

@@ -16,7 +16,7 @@ import {
     Label,
 } from "reactstrap";
 // core components
-import UserHeader from "components/Headers/UserHeader.js";
+// import UserHeader from "components/Headers/UserHeader.js";
 import { useAuth } from "components/contexts/AuthContext";
 import { db } from "components/firebase";
 import RegistrationHeader from "components/Headers/Backend/RegistrationHeader";

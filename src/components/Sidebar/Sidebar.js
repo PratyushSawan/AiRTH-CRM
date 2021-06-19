@@ -1,4 +1,3 @@
-
 /*eslint-disable*/
 import React, { useState } from "react";
 import { NavLink as NavLinkRRD, Link } from "react-router-dom";
@@ -226,7 +225,7 @@ const Sidebar = (props) => {
             <NavItem>
               <NavLink href="#">
                 <i className="ni ni-spaceship" />
-                    Documentation
+                Documentation
               </NavLink>
             </NavItem>
             <NavItem>
